@@ -1,0 +1,327 @@
+/* Global */
+main,
+.container {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+body {
+    background-color: hsl(0, 0%, 94%);
+}
+
+.background-animation {
+    background: linear-gradient(-45deg, hsl(259, 100%, 65%), hsl(239, 100%, 65%), hsl(213, 100%, 65%), hsl(177, 100%, 65%));
+	background-size: 400% 400%;
+	animation: backgroundAnimation 10s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+main {
+    background-color: hsl(0, 0%, 100%);
+    flex-direction: column;
+    border-radius: 20px;
+    border-bottom-right-radius: 100px;
+    justify-content: space-evenly;
+}
+
+.main-separator {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border: 1px hsl(0, 0%, 86%) solid;
+}
+
+label,
+input,
+p,
+span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
+.error {
+    font-size: 0.75em;
+    color: hsl(0, 100%, 67%);
+    height: 20px;
+    width: 100%;
+}
+
+/* Main */
+
+main > * {
+    margin: auto 5% auto 5%;
+    height: 50%;
+}
+
+#container-form {
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+}
+
+#container-date {
+    margin-bottom: 15%;
+}
+
+.date {
+    flex-direction: column;
+    padding: 0 2% 0 2%;
+    width: 30%;
+    height: 100%;
+}
+
+.date > input {
+    border: 2px hsl(0, 0%, 86%) solid;
+    border-radius: 10px;
+    width: 75%;
+    align-self: flex-start;
+    padding: 10% 0 10% 18%;
+    font-size: 1.25em;
+    color: hsl(0, 0%, 8%);
+}
+
+.date > input::placeholder {
+    color: hsl(0, 1%, 44%);
+}
+
+/* Number Scroll */
+.date > input::-webkit-outer-spin-button,
+.date > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Number Scroll */
+.date > input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.date > label {
+    font-size: 0.9em;
+    align-self: flex-start;
+    color: hsl(0, 1%, 44%);
+    padding-bottom: 3%;
+}
+
+#btn-submit {
+    background-color: hsl(259, 100%, 65%);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    padding: 0;
+    bottom: calc(-60px / 2);
+}
+
+#btn-submit:hover {
+    background-color: hsl(259, 61%, 45%);
+    cursor: pointer;
+}
+
+#btn-submit:active {
+    background-color: hsl(258, 78%, 19%);
+}
+
+#btn-submit > img {
+    width: 40%;
+}
+
+#container-age {
+    flex-direction: column;
+    width: 85%;
+    margin-top: 5%;
+}
+
+#container-age > p {
+    font-size: 3.25em;
+    margin: 0;
+    font-weight: 800;
+    font-style: italic;
+    align-self: flex-start;
+    line-height: 110%;
+}
+
+.age-value {
+    color: hsl(259, 100%, 65%);
+} 
+
+#leap-year-count {
+    height: 36px;
+    font-size: 0.75em;
+    text-align: center;
+    color: hsl(0, 1%, 44%);
+}
+
+#leap-year-count > span {
+    color: hsl(259, 100%, 65%);
+    text-decoration: underline;
+}
+
+/* Mobile View */
+@media only screen and ( max-width: 600px ) {
+    main {
+        margin: 25% auto 0 auto; 
+        width: 98%;
+        min-height: 60vh;
+    }
+}
+
+@media only screen and ( min-width: 601px ) {
+    main {
+        margin: 10% auto 0 auto;
+        width: 80%;
+        height: 70vh;
+        max-width: 900px;
+        max-height: 800px;
+        border-bottom-right-radius: 12vw;
+    }
+
+    #container-form {
+        margin-top: 5%;
+        height: 25%;
+    }
+
+    #container-date {
+        margin-bottom: 0;
+        justify-content: flex-start;
+    }
+
+    #container-date > * {
+        width: 23%;
+    }
+
+    .date > label {
+        font-size: 1.25vw;
+    }
+
+    .date > input {
+        font-size: 2vw;
+        padding: 5% 0 5% 9%;
+    }
+
+    .date > .error {
+        padding-top: 3%;
+    }
+
+    #btn-submit {
+        width: 6vw;
+        height: 6vw;
+        right: 0;
+        bottom: calc( -6vw / 2 )
+    }
+
+    #container-age > p {
+        font-size: 7.5vw;
+    }
+
+    #leap-year-count {
+        font-size: 1vw;
+        height: auto;
+        align-self: flex-start;
+    }
+}
+
+@media only screen and ( min-width: 1441px ) {
+    main {
+        margin: 10% auto 0 auto;
+    }
+    #container-age > p {
+        font-size: 5.5vw;
+    }
+
+    #leap-year-count {
+        font-size: 0.8vw;
+    }
+}
+
+/* not part of the challenge */
+.attribution {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    z-index: 10;
+}
+
+.attribution > * {
+    font-size: 0.75em;
+    margin: 0 5px;
+}
+
+.rate {
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    background-color: rgb(155, 205, 238);
+    margin: 0 2px;
+    border-radius: 50%;
+}
+
+.rate-lit {
+    background-color: rgb(81, 140, 180);
+}
+
+.separator {
+    display: inline-block;
+    
+    border: solid 2px #597175;
+}
+
+@media only screen and (min-width: 881px) {
+    .text-cutter {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    .text-cutter {
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    .attribution {
+        flex-direction: row;
+    }
+
+    
+    .separator {
+        width: 0;
+        min-height: 15px;
+    }
+}
+
+@media only screen and (max-width: 424px) {
+    .attribution {
+        flex-direction: column;
+    }
+
+    .separator {
+        width: 30px;
+        height: 0;
+        margin: 3px 0;
+    }
+}

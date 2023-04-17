@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <script src="./scripts.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+<body>
+  <main>
+    <form class="container" id="container-form" onsubmit="return false;">
+      <div class="container" id="container-date">
+        <div class="container date" id="container-day">
+          <label id="label-birthDay" for="birthDay">DAY</label>
+          <input type="number" id="birthDay" name="birthDay" placeholder="DD" max="99">
+          <span class="error" id="error-day"></span>
+        </div>
+
+        <div class="container date" id="container-month">
+          <label id="label-birthMonth" for="birthMonth">MONTH</label>
+          <input type="number" id="birthMonth" name="birthMonth" placeholder="MM" max="99">
+          <span class="error" id="error-month"></span>
+        </div>
+
+        <div class="container date" id="container-year">
+          <label id="label-birthYear" for="birthYear">YEAR</label>
+          <input type="number" id="birthYear" name="birthYear" placeholder="YYYY" max="9999">
+          <span class="error" id="error-year"></span>
+        </div>
+      </div>
+
+      <hr class="main-separator">
+
+      <button id="btn-submit" type="submit" onclick="submitForm();">
+        <img src="./assets/images/icon-arrow.svg" alt="icon-arrow">
+      </button>
+    </form>
+
+    <div class="container" id="container-age">
+      <p><span class="age-value" id="age-years">--</span> years</p>
+      <p><span class="age-value" id="age-months">--</span> months</p>
+      <p><span class="age-value" id="age-days">--</span> days</p>
+    </div>
+    <p id="leap-year-count"></p>
+  </main>
+  
+  <!-- not part of the challenge-->
+  <footer class="attribution">
+    <span>Challenge by <a href="https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q/" target="_blank">Frontend Mentor</a>.</span>
+    
+    <div class="separator"></div>
+    
+    <a href="./design/desktop-design.jpg" target="_blank">Design Guide - Desktop</a>
+    
+    <div class="separator"></div>
+
+    <a href="./design/mobile-design.jpg" target="_blank">Design Guide - Mobile</a>
+    
+    <div class="separator"></div>
+    
+    <div class="rating">
+      <span>Difficulty: Advanced</span>
+      <br class="text-cutter">
+      <span>[</span>
+      <div class="rate rate-lit" id="rate-newbie"></div>
+      <div class="rate rate-lit" id="rate-junior"></div>
+      <div class="rate rate-lit" id="rate-intermediate"></div>
+      <div class="rate rate-lit" id="rate-advance"></div>
+      <div class="rate" id="rate-guro"></div>
+      <span>]</span>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <span>Coded by <a href="https://github.com/EcePJD">Patrick James O. De Leon</a>.</span>
+  </footer>
+</body>
+</html>
